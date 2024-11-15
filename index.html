@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fragrance Shop</title>
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Font Awesome CDN for Icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="logo">Fragrance</div>
+    <input type="text" id="search-bar" placeholder="Search for a fragrance...">
+    <div class="mode-toggle">
+      <!-- Light/Dark Mode Toggle Switch -->
+      <label class="switch">
+        <input type="checkbox" id="mode-toggle">
+        <span class="slider round">
+          <i class="fa-regular fa-sun mode-icon light-icon"></i>
+          <i class="fa-regular fa-moon mode-icon dark-icon"></i>
+        </span>
+      </label>
+    </div>
+  </header>
+
+  <!-- Gender Fragrance Filter -->
+  <div class="filter-toggle">
+    <button id="filter-all" class="gender-btn active">All</button>
+    <button id="filter-him" class="gender-btn">For Him</button>
+    <button id="filter-her" class="gender-btn">For Her</button>
+  </div>
+
+  <!-- Fragrance Cards -->
+  <div id="fragrance-list" class="fragrance-list">
+    <!-- Cards will be dynamically loaded here -->
+  </div>
+
+  <!-- Pagination Controls -->
+  <div class="pagination-controls">
+    <button id="prev-btn" class="pagination-btn" disabled>
+      <i class="fa fa-arrow-left"></i> Back
+    </button>
+    <button id="next-btn" class="pagination-btn">
+      Next <i class="fa fa-arrow-right"></i>
+    </button>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2024 Felix the Cat. All Rights Reserved.</p>
+    <p><a href="#">Privacy Policy</a> | <a href="#">Terms & Conditions</a></p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,282 @@
+/* General Styling */
+$primary-color: #007bff;
+$dark-bg: #2c2c2c;
+$light-bg: #fff;
+$light-text: #333;
+$dark-text: #f0f0f0;
+$border-radius: 5px;
+$transition-duration: 0.3s;
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; // Ensures the body takes at least 100% of the viewport height
+  transition: background-color $transition-duration, color $transition-duration;
+}
+
+main {
+  flex: 1; // Ensures the content area takes all available space
+}
+
+/* Header Styling */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: $light-bg;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+input[type="text"] {
+  padding: 8px;
+  width: 300px;
+  border-radius: $border-radius;
+  border: 1px solid #ccc;
+}
+
+/* Mode Toggle */
+.mode-toggle {
+  display: flex;
+  align-items: center;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+.slider::before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  border-radius: 50%;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+}
+
+input:checked+.slider {
+  background-color: rgb(0, 0, 139);
+}
+
+input:checked+.slider::before {
+  transform: translateX(26px);
+}
+
+input:not(:checked)+.slider {
+  background-color: yellow;
+}
+
+.mode-icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 18px;
+  color: $light-text;
+  transition: opacity $transition-duration ease;
+}
+
+.mode-icon.light-icon {
+  left: 10px;
+  opacity: 1;
+}
+
+.mode-icon.dark-icon {
+  right: 10px;
+  opacity: 0;
+}
+
+input:checked+.slider .light-icon {
+  opacity: 0;
+}
+
+input:checked+.slider .dark-icon {
+  opacity: 1;
+}
+
+/* Gender Filter Buttons */
+.filter-toggle {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.gender-btn {
+  padding: 10px 20px;
+  margin: 0 10px;
+  background-color: $light-bg;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color $transition-duration ease;
+}
+
+.gender-btn.active {
+  background-color: $primary-color;
+  color: $dark-text;
+}
+
+.gender-btn:hover {
+  background-color: #ddd;
+}
+
+/* Fragrance List */
+.fragrance-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* Fragrance Card */
+.fragrance-card {
+  width: 200px;
+  padding: 15px;
+  border: 1px solid #555;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  background-color: $light-bg;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.fragrance-card:hover {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.fragrance-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.fragrance-card h3 {
+  margin: 10px 0;
+  font-size: 16px;
+  color: $light-text;
+}
+
+.fragrance-card .description {
+  margin: 10px 0;
+  font-size: 14px;
+  color: $light-text;
+}
+
+.fragrance-card .buy-link {
+  color: $primary-color;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+  background-color: $dark-bg;
+  color: $dark-text;
+}
+
+header.dark-mode {
+  background-color: $dark-bg;
+}
+
+.fragrance-card.dark-mode {
+  background-color: #333;
+  border: 1px solid #555;
+}
+
+.fragrance-card.dark-mode h3,
+.fragrance-card.dark-mode .description {
+  color: $dark-text;
+}
+
+button.dark-mode {
+  background-color: #333;
+  color: $dark-text;
+}
+
+.mode-icon.dark-mode {
+  color: $dark-text;
+}
+
+/* Pagination Controls */
+.pagination-controls {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.pagination-btn {
+  padding: 10px 20px;
+  background-color: $light-bg;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color $transition-duration ease;
+  margin: 0 10px;
+  font-size: 16px;
+}
+
+.pagination-btn:hover {
+  background-color: #ddd;
+}
+
+.pagination-btn:disabled {
+  background-color: #f0f0f0;
+  cursor: not-allowed;
+}
+
+/* Footer Styling */
+footer {
+  padding: 20px 0;
+  background-color: $dark-bg;
+  color: $dark-text;
+  text-align: center;
+  font-size: 14px;
+  width: 100%;
+  margin-top: auto;
+  /* Ensures the footer is pushed to the bottom */
+}
+
+footer p {
+  margin: 0;
+}
+
+footer a {
+  color: $primary-color;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
